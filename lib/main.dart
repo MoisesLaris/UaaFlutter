@@ -1,3 +1,5 @@
+import 'package:app1/locations.dart';
+import 'package:app1/questions.dart';
 import 'package:flutter/material.dart';
 import 'dashboard.dart';
 import 'login.dart';
@@ -20,7 +22,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
         '/signup': (BuildContext context) => new SignupPage(),
-        '/dashboard': (BuildContext context) => new Dashboard()
+        '/dashboard': (BuildContext context) => new Dashboard(),
+        '/questions': (BuildContext context) => new Questions(),
+        '/locations': (BuildContext context) => new Location()
       },
       home: login(),
     );

@@ -9,7 +9,7 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
 
-  Material MyItems(IconData icon,String heading,int color){
+  Material MyItems(IconData icon,String heading,int color, String ruta){
     return Material(
       color: Colors.white,
       elevation: 14.0,
@@ -25,7 +25,7 @@ class _DashboardState extends State<Dashboard> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
 
-
+                  
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(heading,
@@ -39,7 +39,11 @@ class _DashboardState extends State<Dashboard> {
                   Material(
                     color: new Color(color),
                     borderRadius: BorderRadius.circular(24.0),
-                    child: Padding(
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.of(context).pushNamed('/${ruta}');                        
+                      },
+                      child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Icon(
                         icon,
@@ -47,6 +51,7 @@ class _DashboardState extends State<Dashboard> {
                         size: 30.0,
                       ),
                     ),
+                    )
                   )
                 ],
               )
@@ -72,14 +77,14 @@ class _DashboardState extends State<Dashboard> {
           mainAxisSpacing: 12.0,
           padding: EdgeInsets.symmetric(horizontal: 16.0 , vertical: 8.0),
           children: <Widget>[
-            MyItems(Icons.map,"Ubicaciones", 0xffed622b),
-            MyItems(Icons.bookmark, "Biblioteca", 0xff26cb3c),
-            MyItems(Icons.attach_money, "Becas", 0xffff3260),
-            MyItems(Icons.fitness_center, "Deportes", 0xff3399fe),
-            MyItems(Icons.settings, "Configuracion", 0xfff4c83f),
-            MyItems(Icons.help_outline, "Ayuda", 0xff622F74),
-            MyItems(Icons.account_circle, "Iniciar sesion", 0xff7297ff),
-            MyItems(Icons.streetview, "Servicios",  0xffff339f),
+            MyItems(Icons.map,"Avisos", 0xffed622b, "locations"),
+            MyItems(Icons.question_answer, "Preguntas", 0xff26cb3c, "questions"),
+            MyItems(Icons.attach_money, "Becas", 0xffff3260, "questions"),
+            MyItems(Icons.fitness_center, "Deportes", 0xff3399fe, "questions"),
+            MyItems(Icons.settings, "Configuracion", 0xfff4c83f, "questions"),
+            MyItems(Icons.help_outline, "Ayuda", 0xff622F74, "questions"),
+            MyItems(Icons.account_circle, "Iniciar sesion", 0xff7297ff, "questions"),
+            MyItems(Icons.streetview, "Servicios",  0xffff339f, "questions"),
           ],
           staggeredTiles: [
             StaggeredTile.extent(2, 130.0),
